@@ -32,6 +32,9 @@ class Image {
     // turns image into gray scale
     void makeGreyScale();
 
+    // turns image into negative
+    void makeNegative();
+
  private:
     size_t width_;
     size_t height_;
