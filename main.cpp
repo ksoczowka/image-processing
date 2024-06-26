@@ -22,6 +22,14 @@ int main() {
     img.createFile("filter-cat.ppm");
     img.closeFile();
 
+    img.setHeight(500);
+    img.setWidth(500);
+    img.setType("P3"); // other types are not supported at the moment
+    img.setMaxRGBValue(255);
+    img.fill(RGB(120, 120, 120));
+    img.createFile();
+    img.closeFile();
+
 
     return 0;
 }
