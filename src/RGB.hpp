@@ -26,4 +26,8 @@ struct RGB {
         int grey = red * 0.3f + green * 0.59 + blue * 0.11;
         return RGB(grey, grey, grey);
     }
+
+    RGB inverseColor(int maxRGB) {
+        return RGB(maxRGB - red, maxRGB - green, maxRGB - blue);
+    }
 };
