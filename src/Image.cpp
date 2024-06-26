@@ -17,7 +17,6 @@ bool Image::openFile(const std::string& fileName) {
     file >> height_;
     file >> maxRGBValue_;
 
-    int i = 0;
     while(!file.eof()) {
         RGB rgb;
         file >> rgb.red;
@@ -62,8 +61,6 @@ void Image::fill(const RGB& color) {
     while (!image_.empty()) {
         image_.erase(image_.end());
     }
-    std::clog << std::boolalpha;
-    std::clog << image_.empty() << '\n';
     for (int y = 0; y < height_; y++) {
         for (int x = 0; x < width_; x++) {
             image_.push_back(color);
@@ -73,5 +70,11 @@ void Image::fill(const RGB& color) {
 void Image::makeGreyScale() {
     for (auto& pixel : image_) {
         pixel = pixel.getLuminosity();
+    }
+}
+
+void Image::makeNegative() {
+    for (auto& pixel : image_) {
+        pixel = pixel.inverseColor(maxRGBValue_);
     }
 }
