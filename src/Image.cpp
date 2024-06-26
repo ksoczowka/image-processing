@@ -88,3 +88,11 @@ void Image::closeFile() {
     maxRGBValue_ = 0;
     type_ = "";
 }
+
+void Image::flip180deg() {
+    std::vector<RGB> newImage;
+    for (int i = image_.size() - 1; i >= 0; i--) {
+        newImage.push_back(image_[i]);
+    }
+    image_ = newImage;
+}

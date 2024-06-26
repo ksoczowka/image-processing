@@ -30,6 +30,11 @@ int main() {
     img.createFile();
     img.closeFile();
 
+    img.openFile("cat.ppm");
+    img.flip180deg();
+    img.createFile("flipped-cat.ppm");
+    img.closeFile();
+
 
     return 0;
 }
