@@ -4,14 +4,14 @@
 #include <iostream>
 
 bool Image::openFile(const std::string& fileName) {
-    fileName_ = fileName;
     std::ifstream file;
     
-    file.open(fileName_);
+    file.open(fileName);
 
     if (!file.is_open()) {
         return false;
     }
+
     file >> type_;
     file >> width_;
     file >> height_;
@@ -77,4 +77,14 @@ void Image::makeNegative() {
     for (auto& pixel : image_) {
         pixel = pixel.inverseColor(maxRGBValue_);
     }
+}
+
+void Image::closeFile() {
+    while (!image_.empty()) {
+        image_.erase(image_.end());
+    }
+    width_ = 0;
+    height_ = 0;
+    maxRGBValue_ = 0;
+    type_ = "";
 }

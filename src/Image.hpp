@@ -12,7 +12,6 @@ class Image {
 
     size_t getWidth() const { return width_; }
     size_t getHeight() const { return height_; }
-    std::string getFileName() const { return fileName_; }
 
     void setWidth(const size_t& width) { width_ = width; }
     void setHeight(const size_t& height) { height_ = height; }
@@ -22,6 +21,9 @@ class Image {
 
     // creates file from data in object
     void createFile(const std::string& fileName = "newImage.ppm");
+
+    // closes file
+    void closeFile();
 
     // applies filter
     void applyFilter(const RGB& filter);
@@ -40,6 +42,5 @@ class Image {
     size_t height_;
     size_t maxRGBValue_;
     std::string type_;
-    std::string fileName_;
     std::vector<RGB> image_;
 };
