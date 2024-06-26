@@ -1,25 +1,20 @@
+#include "src/Image.hpp"
+
 #include <fstream>
 
-int main() {
-    int red = 0;
-    int green = 0;
-    int blue = 0;
+#include <iostream>
 
-    std::ofstream image("./Image.ppm");
+int main(int argc, char** argv) {
+    Image img;
+    
+    img.openFile("cat.ppm");
 
-    if(image.is_open()) {
-        image << "P3\n";
-        image << "250 250\n";
-        image << "255\n";
+    img.createFile();
 
-        for(int y = 0; y < 250; y++) {
-            for(int x = 0; x < 250; x++) {
-                image << red << ' ' << green << ' ' << blue << '\n';
-            }
-        }
+    img.makeGreyScale();
 
-        image.close();
-    }
+    img.createFile("newImage2.ppm");
+
 
     return 0;
 }
