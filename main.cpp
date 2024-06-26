@@ -4,16 +4,20 @@
 
 #include <iostream>
 
-int main(int argc, char** argv) {
+int main() {
     Image img;
     
     img.openFile("cat.ppm");
-
-    img.createFile();
-
     img.makeGreyScale();
+    img.createFile("grey-cat.ppm");
 
-    img.createFile("newImage2.ppm");
+    img.openFile("cat.ppm");
+    img.makeNegative();
+    img.createFile("negative-cat.ppm");
+
+    img.openFile("cat.ppm");
+    img.applyFilter(RGB(255, 255, 0));
+    img.createFile("filter-cat.ppm");
 
 
     return 0;
