@@ -12,9 +12,13 @@ class Image {
 
     size_t getWidth() const { return width_; }
     size_t getHeight() const { return height_; }
+    size_t getMaxRGBValue() const { return maxRGBValue_; }
+    std::string getType() const { return type_; }
 
     void setWidth(const size_t& width) { width_ = width; }
     void setHeight(const size_t& height) { height_ = height; }
+    void setMaxRGBValue(const size_t& maxRGBValue) { maxRGBValue_ = maxRGBValue; }
+    void setType(const std::string& type) { type_ = type; }
     
     // opens ppm file
     bool openFile(const std::string& fileName);
