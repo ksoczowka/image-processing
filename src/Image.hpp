@@ -41,6 +41,8 @@ class Image {
     // turns image into negative
     void makeNegative();
 
+    void flip180deg();
+
  private:
     size_t width_;
     size_t height_;
