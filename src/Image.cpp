@@ -1,7 +1,6 @@
 #include "Image.hpp"
 
 #include <fstream>
-#include <iostream>
 
 bool Image::openFile(const std::string& fileName) {
     std::ifstream file;
@@ -95,4 +94,37 @@ void Image::flip180deg() {
         newImage.push_back(image_[i]);
     }
     image_ = newImage;
+}
+
+void Image::flip90Right() {
+    std::vector<std::vector<RGB>> img = imageToDoubleVector_();
+    std::vector<RGB> newImage;
+
+
+    for (int x = 0; x < width_; x++) {
+        for(int y = height_ - 1; y >= 0; y--) {
+            newImage.push_back(img[y][x]);
+        }
+    }
+    image_ = newImage;
+
+    int buff = height_;
+    height_ = width_;
+    width_ = buff;
+}
+
+std::vector<std::vector<RGB>> Image::imageToDoubleVector_() {
+    std::vector<std::vector<RGB>> ret;
+    
+    int imageIterator = 0;
+    for(int y = 0; y < height_; y++) {
+        std::vector<RGB> vec;
+        for(int x = 0; x < width_; x++) {
+            vec.push_back(image_.at(imageIterator));
+            imageIterator++;
+        }
+        ret.push_back(vec);
+    }
+
+    return ret;
 }

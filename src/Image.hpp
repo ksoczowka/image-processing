@@ -41,12 +41,17 @@ class Image {
     // turns image into negative
     void makeNegative();
 
+    // flips image 180 deg
     void flip180deg();
 
+    // flips image 90 deg
+    void flip90Right();
  private:
     size_t width_;
     size_t height_;
     size_t maxRGBValue_;
     std::string type_;
     std::vector<RGB> image_;
+
+    std::vector<std::vector<RGB>> imageToDoubleVector_();
 };

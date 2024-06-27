@@ -35,6 +35,10 @@ int main() {
     img.createFile("flipped-cat.ppm");
     img.closeFile();
 
+    img.openFile("cat.ppm");
+    img.flip90Right();
+    img.createFile("flipped90-cat.ppm");
+    img.closeFile();
 
     return 0;
 }
